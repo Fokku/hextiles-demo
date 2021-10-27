@@ -1,0 +1,242 @@
+.docs {
+  text-align: justify;
+  margin: 0 1em;
+  padding: 10px;
+}
+
+.docs .main {
+  margin-left: 16%; /* Same as the width of the sidebar */
+  padding: 0px 30px;
+  padding-right: 90px;
+  margin-bottom: 1em;
+}
+
+.docs .main p {
+  font-size: 1.1em;
+  font-weight: 500;
+  color: rgb(48, 52, 68);
+}
+.docs .main small {
+  transition: opacity 1s;
+}
+.docs .main input[type=checkbox] {
+   width: 100%;
+   height: 100%;
+   opacity: 0;
+   display: none;
+}
+label {
+   cursor: pointer;
+}
+label:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  right: 0;
+  border-left: 8px solid black;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+}
+input[type=checkbox]:checked ~ p label:before {
+  border-left: 8px solid transparent;
+  border-top: 8px solid black;
+  border-right: 8px solid transparent;
+  margin-left: -4px;
+  margin-top: -4px
+}
+.docs .main input+p+small {
+  opacity: 0;
+}
+
+.docs .main input:checked + p + small {
+  opacity: 1;
+}
+
+.docs .main p code {
+  background: inherit;
+  font-family: Consolas, Monaco, Lucida Console, Liberation Mono,
+    DejaVu Sans Mono, Bitstr;
+  font-size: 0.85em;
+  padding:0;
+  width: auto;
+  display: inline;
+}
+
+.docs .main a {
+  font-size: 1.1em;
+  font-weight: 500;
+  color: rgb(48, 52, 68);
+  text-decoration: underline;
+}
+
+.docs .main a:hover {
+  color: #006d9a;
+  text-decoration: underline;
+}
+
+.docs .main .description {
+  font-size: 1.1em;
+  font-weight: 500;
+  color: rgb(48, 52, 68);
+}
+
+.docs .main .interfaces {
+  font-size: 1.1em;
+  font-weight: 500;
+  color: rgb(48, 52, 68);
+}
+
+.docs .main small {
+  font-size: 0.95em;
+  line-height: 0.75em;
+  letter-spacing: 0.024em;
+  color: rgb(48, 52, 68);
+}
+
+.docs pre code {
+  display: block;
+  padding: 15px;
+  font-size: 0.9em;
+  font-family: Consolas, Monaco, Lucida Console, Liberation Mono,
+    DejaVu Sans Mono, Bitstr;
+}
+
+.docs .toc {
+  height: 95%; /* Full-height: remove this if you want "auto" height */
+  width: 15%; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  bottom: 0;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  border-right: 1px solid rgba(128, 128, 128, 0.39);
+  padding: 20px 20px;
+  padding-bottom: 4em;
+  margin-bottom: 2em;
+
+}
+.docs .toc h4, .docs .toc h4 > p {
+  margin-block-start: 0em;
+  margin-block-end: .2em;
+}
+
+@media screen and (max-width: 700px) {
+  .docs .toc {
+    display: none;
+  }
+
+  .docs .main {
+    padding: 0 20px;
+    margin-left: 0;
+    font-size: 0.9em;
+  }
+
+  .docs pre code {
+    font-size: 0.7em;
+  }
+
+  .docs .footer .next,
+  .docs .footer .prev {
+    display: inline-block !important;
+  }
+}
+
+.docs .toc ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0 0.4em;
+  line-height: 1.5em;
+}
+
+.docs .toc ul a,
+.docs .toc h2 a {
+  text-decoration: none;
+  color: black;
+}
+
+.docs .toc h2 {
+  padding: 20px 0;
+  display:inline; width: 55%;
+  
+}
+
+.docs .toc .logo {
+  background: url('../Assets/hex_ico.svg') no-repeat;
+  background-size: 30px; /** moved this property down */
+  height: 35px;
+  float:right; display:inline; width: 55%;
+}
+
+.docs .toc .logo:hover {
+  cursor: pointer;
+
+}
+
+.docs .toc ul a:hover,
+.docs .toc h2 a:hover {
+  color: #006d9a;
+}
+
+.docs .toc ul span {
+  transition: transform 0.4s;
+  width: 5px;
+  background-image: linear-gradient(90deg, #006d9a, #034b69);
+  background-size: 100%;
+  height: 25px;
+  transform: translateY(0px);
+  display: inline-block;
+  position: absolute;
+  right: 0;
+}
+
+.docs .header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  display: inline-block;
+  background: gray;
+}
+
+.docs .footer {
+  width: 100%;
+  height: 50px;
+  position: relative;
+}
+
+.docs .footer .next {
+  right: 0px;
+}
+
+.docs .footer .prev {
+  left: 0px;
+}
+
+.docs .footer .next,
+.docs .footer .prev {
+  position: absolute;
+  text-decoration: none;
+  border: 1px solid black;
+  font-size: inherit;
+  color: inherit;
+  cursor: pointer;
+  padding: 5px 15px;
+  display: none;
+  outline: none;
+  background: white;
+  color: black;
+  -webkit-transition: background linear 0.25s, border linear 0.25s,
+    color linear 0.25s;
+  -moz-transition: background linear 0.25s, border linear 0.25s,
+    color linear 0.25s;
+  transition: background linear 0.25s, border linear 0.25s, color linear 0.25s;
+  border-radius: 40px;
+}
+
+.docs .footer .next:hover,
+.docs .footer .prev:hover {
+  background: #006d9a;
+  border-color: #006d9a;
+  color: white;
+}
